@@ -24,11 +24,12 @@
     "give_kudos":         true
   },
   "assets": {
-    "jquery_js":       "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js",
-    "jquery_map":      "https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.map",
-    "bootstrap_css":   "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css",
-    "bootstrap_js":    "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/js/bootstrap.min.js",
-    "font_awesome":    "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css",
+    "jquery_js":       "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js",
+    "jquery_map":      "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.map",
+    "m8tro_css":       "https://vps.wolfy1339.com/Resources/css/m8tro-blue.min.css",
+    "bootstrap_css":   "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css",
+    "bootstrap_js":    "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js",
+    "font_awesome":    "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css",
     "google_font":     null,
     "stupid_table":    "https://cdnjs.cloudflare.com/ajax/libs/stupidtable/0.0.1/stupidtable.min.js",
     "jquery_searcher": "https://cdnjs.cloudflare.com/ajax/libs/jquery-searcher/0.3.0/jquery.searcher.min.js",
@@ -46,7 +47,7 @@
     ]
   },
   "bootstrap": {
-    "fluid_grid":        false,
+    "fluid_grid":        true,
     "body_style":        null,
     "container_style":   null,
     "table_style":       "table-hover",
@@ -54,7 +55,7 @@
     "responsive_table":  true,
     "modal_style":        "modal-lg",
     "button_primary":    "btn-primary",
-    "button_default":    "btn-secondary",
+    "button_default":    "btn-default",
     "button_highlight":  "btn-link",
     "input_size":        null,
     "tablerow_folder":   null,
@@ -64,7 +65,7 @@
     "hidden_files_link": "text-muted",
     "checksum_label":    "label-default",
     "alert_404":         "alert-warning",
-    "theme":             "default",
+    "theme":             "m8tro",
     "icons":             "fa",
     "fontawesome_style": ""
   },
