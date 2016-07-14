@@ -1,28 +1,4 @@
-@import '../../node_modules/bootstrap/scss/_variables';
-
-
-// Table pseudo-styles
-.table {
-
-  tr::before {
-    border-top: 1px solid $table-border-color;
-  }
-
-  tbody tr:first-child::before {
-    border-top: 2px solid $table-border-color;
-  }
-}
-
-.table-inverse {
-
-  tr::before {
-    border-top: 1px solid $gray;
-  }
-
-  tbody tr:first-child::before {
-    border-top: 2px solid $gray;
-  }
-}
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables';
 
 
 // Table styles
@@ -30,7 +6,7 @@ th {
   cursor: pointer;
 }
 
-tr::before {
+tr:before {
   display: table-cell;
   line-height: $line-height-base;
   padding: $table-cell-padding;
@@ -62,7 +38,7 @@ tbody {
     counter-increment: listr-rows;
   }
 
-  tr::before {
+  tr:before {
     color: $text-muted;
     content: counter(listr-rows);
   }
