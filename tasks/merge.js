@@ -22,7 +22,7 @@ gulp.task('merge', function(callback) {
     console.log('Merging assets…');
 
     sequence(
-          ['merge:js', 'merge:css'],
+          ['merge:js', 'merge:css', 'merge:php'],
           'post-merge',
           callback
         );
@@ -75,9 +75,11 @@ gulp.task('merge:css', function(){
 gulp.task('merge:php', ['concat'], function() {
   return gulp.src('build/index.php')
       .pipe(replace('require_once\(\'([\w-]+(?:\.php))\'\);', function(match, p1) {
-        if ('listr-template.php' == p1) {
+        if (p1 == 'listr-template.php') {
           return '';
-        } else if ('listr-l10n.php' == p1) {
+        } else if (p1 == 'parsedown/Parsedown.php') {
+          return p1
+        } else if (p1 == 'listr-l10n.php') {
           var file = '';
           var rl = readline.createInterface({
             input: fs.createReadStream(path.join('build', p1))
@@ -112,6 +114,8 @@ gulp.task('post-merge', function() {
     '!build/assets/js/bootlint.js',
     '!build/assets/js/bootstrap.min.js',
     '!build/assets/js/jquery.min.js',
-    '!build/assets/js/listr.pack.js'
+    '!build/assets/js/listr.pack.js',
+    'build/*.php',
+    '!build/index.php'
   ]);
 });
