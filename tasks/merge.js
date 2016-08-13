@@ -74,7 +74,7 @@ gulp.task('merge:css', function(){
 // Merge PHP files
 gulp.task('merge:php', ['concat'], function() {
   return gulp.src('build/index.php')
-      .pipe(replace('require_once\(\'([\w-]+(?:\.php))\'\);', function(match, p1) {
+      .pipe(replace('require_once\(\'([\w-]+\.php)\'\);', function(match, p1) {
         if (p1 == 'listr-template.php') {
           return '';
         } else if (p1 == 'parsedown/Parsedown.php') {
