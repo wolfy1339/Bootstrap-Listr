@@ -78,7 +78,7 @@ gulp.task('merge:php', ['concat'], function() {
         if (p1 == 'listr-template.php') {
           return '';
         } else if (p1 == 'parsedown/Parsedown.php') {
-          return p1
+          return match;
         } else if (p1 == 'listr-l10n.php') {
           var file = '';
           var rl = readline.createInterface({
