@@ -3,9 +3,12 @@ var
   concatCss = require('gulp-concat-css'),
   cssmin    = require('gulp-cssmin'),
   del       = require('del'),
+  fs        = require('fs'),
   gulp      = require('gulp'),
   jeditor   = require('gulp-json-editor'),
+  path      = require('path'),
   prompt    = require('gulp-prompt'),
+  readline  = require('readline'),
   sequence  = require('run-sequence'),
   queue     = require('streamqueue'),
   uglify    = require('gulp-uglify');
@@ -66,6 +69,37 @@ gulp.task('merge:css', function(){
     .pipe(cssmin())
     .pipe(gulp.dest('build/assets/css/'));
 });
+
+
+// Merge PHP files
+gulp.task('merge:php', ['concat'], function() {
+  return gulp.src('build/index.php')
+      .pipe(replace('require_once\(\'([\w-]+(?:\.php))\'\);', function(match, p1) {
+        if ('listr-template.php' == p1) {
+          return '';
+        } else if ('listr-l10n.php' == p1) {
+          var file = '';
+          var rl = readline.createInterface({
+            input: fs.createReadStream(path.join('build', p1))
+          });
+          rl.on('line', function(line) {
+            if (!(line == '<?php' || line == '?>')) {
+              // Supplement indent, so it will be properly indented in the output
+              file += '    ' + line;
+            }
+          });
+          return file
+        } else {
+          return fs.readFileSync(path.join('build', p1)).split('<?php')[1].split('?>')[0];
+        }
+      }))
+      .pipe(gulp.dest('build'));
+});
+gulp.task('concat', function() {
+  return gulp.src(['index.php', 'listr-template.php'])
+    .pipe(concat('index.php'))
+    .pipe(gulp.dest('build'));
+})
 
 
 // Clean up after merge
