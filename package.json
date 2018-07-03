@@ -9,7 +9,8 @@
     "font-awesome": "^4.5.0",
     "highlight.js": "isagalaev/highlight.js#9.5.0",
     "jquery": "^3.1.0",
-    "jquery-searcher": "^0.3.0"
+    "jquery-searcher": "^0.3.0",
+    "snyk": "^1.88.0"
   },
   "devDependencies": {
     "apache-server-configs": "^2.14.0",
@@ -41,6 +42,9 @@
     "test": "gulp travis",
     "postinstall": "bower install && gulp build:highlighter",
     "build": "gulp clean --silent;gulp --silent;gulp merge --silent",
-    "build:http2": "gulp clean --silent;gulp --silent"
-  }
+    "build:http2": "gulp clean --silent;gulp --silent",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
